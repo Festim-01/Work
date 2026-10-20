@@ -1,5 +1,5 @@
 // ── GOOGLE SHEETS CONFIG ──────────────────────────────────────────────────────
-const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQloaEIJRZV9RdKwZ1AYxvMO6BoVWKVKVNdBaHwcRQOAem3ruzLdHvj8-ExVbYOfKlzNsUkfhliahKP/pub?gid=0&single=true&output=csv';
+const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3_IzedM0P142SGMPGxJNqDd87EQRX2wiLjh7vgi8ETxwJeTAw0CKUJOqVNKYDNR--NiqXjlTL5jgd/pub?gid=319280810&single=true&output=csv';
 
 // ── LOAD FROM GOOGLE SHEETS ───────────────────────────────────────────────────
 async function loadFromSheets() {
