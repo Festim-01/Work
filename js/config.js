@@ -1,6 +1,6 @@
 // ── GITHUB CONFIG ─────────────────────────────────────────────────────────────
-const GH_OWNER = 'shalaermal';
-const GH_REPO  = 'sdapptrack';
+const GH_OWNER = 'Festim-01';
+const GH_REPO  = 'Work';
 const GH_FILE  = 'config.json';
 
 // ── DEFAULT CONFIG ────────────────────────────────────────────────────────────
