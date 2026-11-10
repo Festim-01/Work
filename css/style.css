@@ -190,3 +190,6 @@ select:focus { border-color: var(--accent); }
 .save-status.saving { color: var(--warn); }
 .save-status.saved { color: var(--green); }
 .save-status.error { color: var(--danger); }
+
+/* Column filter dropdowns in table headers */
+.table-card th .col-filter { margin-top: 5px; padding: 2px 6px; font-size: 10px; font-family: var(--mono); text-transform: none; letter-spacing: 0; min-width: 70px; }
