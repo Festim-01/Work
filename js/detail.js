@@ -137,7 +137,7 @@ function renderDetail(name) {
       })();
 
       return `
-        <tr class="${lateEsc ? 'escalated' : ''}">
+        <tr class="${lateEsc ? 'escalated' : ''}" data-sla="${sla === 'ok' ? 'ok' : sla === 'late' ? 'late' : 'none'}" data-esc="${escT ? 'yes' : 'no'}">
           <td style="font-weight:500">${t['Service Delivery Order - Customer PON'] || '—'}</td>
           <td>${t['Task Type'] || '—'}</td>
           <td>${t['Actual Complete Date'] || '—'}</td>
@@ -242,15 +242,45 @@ function renderDetail(name) {
         <thead>
           <tr>
             <th>Order (PON)</th><th>Task Type</th><th>Complete Date</th>
-            <th>Days</th><th>SLA</th><th>Escalated</th><th>Market</th>
+            <th>Days</th>
+            <th>SLA<br>
+              <select class="col-filter" id="slaFilter" onchange="applyTaskFilters()">
+                <option value="">All</option>
+                <option value="ok">On time</option>
+                <option value="late">Late</option>
+              </select>
+            </th>
+            <th>Escalated<br>
+              <select class="col-filter" id="escFilter" onchange="applyTaskFilters()">
+                <option value="">All</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </th>
+            <th>Market</th>
           </tr>
         </thead>
-        <tbody>${allTaskRows}</tbody>
+        <tbody id="allTasksBody">${allTaskRows}
+          <tr id="noTaskMatch" style="display:none"><td colspan="7" style="text-align:center;color:var(--text2)">No tasks match the selected filters</td></tr>
+        </tbody>
       </table>
     </div>`;
 
   // ── Build Charts ───────────────────────────────────────────────────────────
   buildCharts(tasks, typeCounts, perDay, limit, name);
+}
+
+// ── TABLE COLUMN FILTERS (SLA / Escalated) ────────────────────────────────────
+function applyTaskFilters() {
+  const sla = document.getElementById('slaFilter').value;
+  const esc = document.getElementById('escFilter').value;
+  let shown = 0;
+  document.querySelectorAll('#allTasksBody tr[data-sla]').forEach(tr => {
+    const match = (!sla || tr.dataset.sla === sla) && (!esc || tr.dataset.esc === esc);
+    tr.style.display = match ? '' : 'none';
+    if (match) shown++;
+  });
+  document.getElementById('noTaskMatch').style.display = shown ? 'none' : '';
 }
 
 // ── CHARTS ────────────────────────────────────────────────────────────────────
