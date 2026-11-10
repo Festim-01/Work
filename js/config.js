@@ -11,13 +11,14 @@ const DEFAULT_CONFIG = {
       limit: 7,
       slaDays: 4,
       members: ["Fitim Ahmeti","Shpend Ajeti","Festim Asllani","Tim Corey",
-                "Vlora Ibrahimi","Vanja Petrushevski","Edi Sermaxhaj","Lendrit Islami"]
+                "Vlora Ibrahimi","Vanja Petrushevski","Edi Sermaxhaj","Ermal Shala",
+                "Lendrit Islami"]
     },
     "Data": {
       limit: 10,
       slaDays: 4,
       members: ["Berat Gubavci","Besar Ahmeti","Fitore Behrami","Arlinda Neziri",
-                "Jetart Aliu","Melos Doberdoli","Genc Ajeti","Blerion Ajvazaj",
+                "Jetart Aliu","Melos Doberdoli","Genc Ajeti",
                 "Furkan Mani","Petar Siljanoski","Maksim Babovikj"]
     },
     "CDE": {
